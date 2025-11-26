@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpaca Image Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Generate a personalised alpaca avatar" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>ALPACA GENERATOR</h1>
+      <div class="container">
+        <div class="img-button-container">
+          <div class="img-preview">
+            <img
+              src="assets/backgrounds/bg_darkblue70.png"
+              alt="darkblue70 background"
+              class="bg bg-darkblue70"
+            />
+            <img
+              src="assets/leg/leg_default.png"
+              alt="alpaca paw positioned in an upright position, forming the peace sign"
+              class="leg leg-default"
+            />
+
+            <img
+              src="assets/neck/neck_default.png"
+              alt="neck in a straight, upright position"
+              class="neck neck-default"
+            />
+            <img
+              src="assets/ears/ears_default.png"
+              alt="Alpaca upright ears"
+              class="ears ears-default"
+            />
+
+            <img src="assets/nose.png" alt="Alpaca nose" class="nose" />
+            <img
+              src="assets/hair/hair_default.png"
+              alt="Straight hair"
+              class="hair hair-default"
+            />
+            <img
+              src="assets/accessories/accessories_headphone.png"
+              alt="headphones"
+              class="acc acc-headphones"
+            />
+            <img
+              src="assets/eyes/eyes_default.png"
+              alt="Neutral-looking eyes"
+              class="eyes eyes-default"
+            />
+
+            <img
+              src="assets/mouth/mouth_default.png"
+              alt="smiling"
+              class="mouth mouth-default"
+            />
+          </div>
+          <div class="img-buttons">
+            <button id="random-button" type="button" class="random-button">
+              🔀 Random
+            </button>
+            <button id="download-button" type="button" class="download-button">
+              🖼️ Download
+            </button>
+          </div>
+        </div>
+        <div class="accessorise-categories">
+          <h2>ACCESSORISE THE ALPACA'S:</h2>
+          <button type="button">Hair</button>
+          <button type="button">Ears</button>
+          <button type="button">Eyes</button>
+          <button type="button">Mouth</button>
+          <button type="button">Neck</button>
+          <button type="button">Leg</button>
+          <button type="button">Accessories</button>
+          <button type="button">Background</button>
+        </div>
+        <div class="style-options">
+          <h2>STYLE</h2>
+          <div class="style-hair-buttons">
+            <button type="button">Default</button>
+            <button type="button">Bangs</button>
+            <button type="button">Curls</button>
+            <button type="button">Elegant</button>
+            <button type="button">Fancy</button>
+            <button type="button">Short</button>
+          </div>
+          <div class="style-ears-buttons" style="display: none">
+            <button type="button">Default</button>
+            <button type="button">Tilt backwards</button>
+            <button type="button">Tilt forwards</button>
+          </div>
+          <div class="style-eyes-buttons" style="display: none">
+            <button type="button">Default</button>
+            <button type="button">Angry</button>
+            <button type="button">Naughty</button>
+            <button type="button">Panda</button>
+            <button type="button">Smart</button>
+            <button type="button">Star</button>
+          </div>
+          <div class="style-mouth-buttons" style="display: none">
+            <button type="button">Default</button>
+            <button type="button">Astonished</button>
+            <button type="button">Eating</button>
+            <button type="button">Laugh</button>
+            <button type="button">Tongue</button>
+          </div>
+          <div class="style-neck-buttons" style="display: none">
+            <button type="button">Default</button>
+            <button type="button">Bend backwards</button>
+            <button type="button">Bend forwards</button>
+            <button type="button">Thick</button>
+          </div>
+          <div class="style-leg-buttons" style="display: none">
+            <button type="button">Default</button>
+            <button type="button">Bubble-tea</button>
+            <button type="button">Cookie</button>
+            <button type="button">Game console</button>
+            <button type="button">Tilt backwards</button>
+            <button type="button">Tilt forwards</button>
+          </div>
+          <div class="style-acc-buttons" style="display: none">
+            <button type="button">Headphones</button>
+            <button type="button">Earrings</button>
+            <button type="button">Flower</button>
+            <button type="button">Glasses</button>
+          </div>
+          <div class="style-bg-buttons" style="display: none">
+            <button
+              id="blue50"
+              class="blue50"
+              type="button"
+              title="Cornflower Blue"
+            ></button>
+            <button
+              id="blue60"
+              class="blue60"
+              type="button"
+              title="Royal Blue"
+            ></button>
+            <button
+              id="blue70"
+              class="blue70"
+              type="button"
+              title="Denim"
+            ></button>
+            <button
+              id="darkblue30"
+              class="darkblue30"
+              type="button"
+              title="Light Slate Grey"
+            ></button>
+            <button
+              id="darkblue50"
+              class="darkblue50"
+              type="button"
+              title="Deep Sapphire"
+            ></button>
+            <button
+              id="darkblue70"
+              class="darkblue70"
+              type="button"
+              title="Midnight Blue"
+            ></button>
+            <button
+              id="green50"
+              class="green50"
+              type="button"
+              title="Pale Olive Green"
+            ></button>
+            <button
+              id="green60"
+              class="green60"
+              type="button"
+              title="Avocado"
+            ></button>
+            <button
+              id="green70"
+              class="green70"
+              type="button"
+              title="Moss"
+            ></button>
+            <button
+              id="grey40"
+              class="grey40"
+              type="button"
+              title="Pastel Grey"
+            ></button>
+            <button
+              id="grey70"
+              class="grey70"
+              type="button"
+              title="Flint"
+            ></button>
+            <button
+              id="grey80"
+              class="grey80"
+              type="button"
+              title="Charcoal"
+            ></button>
+            <button
+              id="red50"
+              class="red50"
+              type="button"
+              title="Terracotta"
+            ></button>
+            <button
+              id="red60"
+              class="red60"
+              type="button"
+              title="Chestnut Red"
+            ></button>
+            <button
+              id="red70"
+              class="red70"
+              type="button"
+              title="Cognac"
+            ></button>
+            <button
+              id="yellow50"
+              class="yellow50"
+              type="button"
+              title="Dandelion"
+            ></button>
+            <button
+              id="yellow60"
+              class="yellow60"
+              type="button"
+              title="Old Gold"
+            ></button>
+            <button
+              id="yellow70"
+              class="yellow70"
+              type="button"
+              title="Marigold"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </body>
+</html>
