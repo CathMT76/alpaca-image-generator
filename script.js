@@ -306,15 +306,50 @@ function generateRandomAlpaca() {
 }
 
 function downloadImage() {
-  const imageContainer = document.querySelector(".img-preview");
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 720;
 
-  html2canvas(imageContainer).then(function (canvas) {
-    const fileName = "alpaca.png";
-    const link = document.createElement("a");
-    link.download = fileName;
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+  if (!canvas) {
+    throw "missing canvas";
+  }
+
+  const ctx = canvas.getContext("2d");
+
+  if (!ctx) {
+    throw "failed to create 2d context";
+  }
+
+  const domImages = Array.from(document.querySelectorAll(".img-preview > img"));
+
+  const imageLoadTasks = domImages.map((domImg) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+
+      img.crossOrigin = "anonymous";
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(domImg.src);
+      img.src = domImg.src;
+    });
   });
+
+  Promise.all(imageLoadTasks)
+    .then((loadedImages) => {
+      loadedImages.forEach((img) => {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      });
+
+      const fileName = "alpaca.png";
+      const link = document.createElement("a");
+      link.download = fileName;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    })
+    .catch((brokenUrl) => {
+      alert(
+        `Oops! We couldn't generate the alpaca. Failed to load: ${brokenUrl}`
+      );
+      console.error("Image generation failed due to:", brokenUrl);
+    });
 }
 
 // Event listeners
